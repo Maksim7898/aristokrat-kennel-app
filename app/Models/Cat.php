@@ -37,6 +37,7 @@ class Cat extends Model implements Viewable
         return [
             'gender' => CatGenderEnum::class,
             'status' => CatStatusEnum::class,
+            'date_of_birth' => 'date',
         ];
     }
 
@@ -49,7 +50,7 @@ class Cat extends Model implements Viewable
 
     public function breed(): BelongsTo
     {
-        return $this->belongsTo(CatBreed::class, 'cat_bread_id');
+        return $this->belongsTo(CatBreed::class, 'cat_breed_id');
     }
 
     public function class(): BelongsTo

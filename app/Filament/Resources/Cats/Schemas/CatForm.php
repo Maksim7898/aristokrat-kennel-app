@@ -7,7 +7,6 @@ use App\Enums\CatStatusEnum;
 use App\Filament\Resources\CatBreeds\Schemas\CatBreedForm;
 use App\Filament\Resources\CatClasses\Schemas\CatClassForm;
 use App\Models\Cat;
-use App\Models\Post;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;

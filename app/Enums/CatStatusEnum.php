@@ -2,11 +2,13 @@
 
 namespace App\Enums;
 
-use Filament\Support\Contracts\HasColor;
+use App\Traits\Enums\HasValues;
 use Filament\Support\Contracts\HasLabel;
 
 enum CatStatusEnum: string implements HasLabel
 {
+    use HasValues;
+
     case FOR_SALE = 'for_sale';
     case SOLD = 'sold';
 

@@ -4,12 +4,9 @@ namespace App\Filament\Resources\Posts\Schemas;
 
 use App\Filament\Resources\PostCategories\Schemas\PostCategoryForm;
 use App\Models\Post;
-use CyrildeWit\EloquentViewable\Views;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;

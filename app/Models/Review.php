@@ -29,7 +29,6 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function cat(): BelongsTo
     {
         return $this->belongsTo(Cat::class);

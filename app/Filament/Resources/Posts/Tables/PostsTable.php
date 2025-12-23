@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Posts\Tables;
 
 use App\Models\Post;
-use App\Models\User;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -58,7 +57,7 @@ class PostsTable
                     ->sortable()
                     ->toggleable(),
 
-                TextColumn:: make('views_count')
+                TextColumn::make('views_count')
                     ->label('Просмотры')
                     ->counts('views')
                     ->sortable()

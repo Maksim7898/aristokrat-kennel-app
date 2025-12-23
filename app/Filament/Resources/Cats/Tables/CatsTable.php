@@ -2,14 +2,11 @@
 
 namespace App\Filament\Resources\Cats\Tables;
 
-use App\Enums\BusinessStatusEnum;
 use App\Enums\CatGenderEnum;
 use App\Enums\CatStatusEnum;
-use App\Models\CatBreed;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;

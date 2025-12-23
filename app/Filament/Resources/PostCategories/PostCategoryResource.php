@@ -9,11 +9,11 @@ use App\Filament\Resources\PostCategories\Schemas\PostCategoryForm;
 use App\Filament\Resources\PostCategories\Tables\PostCategoriesTable;
 use App\Models\PostCategory;
 use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PostCategoryResource extends Resource
 {

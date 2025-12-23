@@ -9,11 +9,11 @@ use App\Filament\Resources\CatClasses\Schemas\CatClassForm;
 use App\Filament\Resources\CatClasses\Tables\CatClassesTable;
 use App\Models\CatClass;
 use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class CatClassResource extends Resource
 {

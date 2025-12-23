@@ -32,7 +32,7 @@ class Post extends Model implements Viewable
     protected function casts(): array
     {
         return [
-            'is_published' => 'boolean'
+            'is_published' => 'boolean',
         ];
     }
 

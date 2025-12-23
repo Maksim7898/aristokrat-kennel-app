@@ -2,11 +2,13 @@
 
 namespace App\Enums;
 
-use Filament\Support\Contracts\HasColor;
+use App\Traits\Enums\HasValues;
 use Filament\Support\Contracts\HasLabel;
 
 enum CatGenderEnum: string implements HasLabel
 {
+    use HasValues;
+
     case MALE = 'male';
     case FEMALE = 'female';
 
