@@ -12,7 +12,7 @@ class ReviewPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
@@ -20,7 +20,7 @@ class ReviewPolicy
      */
     public function view(User $user, Review $review): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
@@ -36,13 +36,18 @@ class ReviewPolicy
      */
     public function update(User $user, Review $review): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
     public function delete(User $user, Review $review): bool
+    {
+        return $user->is_admin;
+    }
+
+    public function deleteAny(User $user): bool
     {
         return $user->is_admin;
     }

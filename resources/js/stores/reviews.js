@@ -1,20 +1,40 @@
 import {defineStore} from 'pinia'
-import {reviews as initialReviews} from '@/data/reviews'
+import axios from 'axios'
 
 export const useReviewsStore = defineStore('reviews', {
     state: () => ({
-        reviews: [...initialReviews]
+        reviewsBySlug: {},
+        loading: false
     }),
     getters: {
         reviewsByCat: (state) => (slug) =>
-            state.reviews.filter((review) => review.slug === slug)
+            state.reviewsBySlug[slug] || []
     },
     actions: {
-        addReview(review) {
-            this.reviews.unshift({
-                id: Date.now(),
-                ...review
-            })
+        async fetchReviews(slug) {
+            if (!slug) {
+                return
+            }
+            this.loading = true
+            try {
+                const {data} = await axios.get(`/api/cats/${slug}/reviews`)
+                const reviews = Array.isArray(data?.data) ? data.data : data
+                this.reviewsBySlug = {
+                    ...this.reviewsBySlug,
+                    [slug]: reviews
+                }
+            } catch (error) {
+                this.reviewsBySlug = {
+                    ...this.reviewsBySlug,
+                    [slug]: []
+                }
+            } finally {
+                this.loading = false
+            }
+        },
+        async submitReview(slug, payload) {
+            const {data} = await axios.post(`/api/cats/${slug}/reviews`, payload)
+            return data
         }
     }
 })

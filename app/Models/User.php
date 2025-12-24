@@ -49,7 +49,7 @@ class User extends Authenticatable implements FilamentUser, HasName
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->is_admin;
+        return $this->is_admin || $this->is_sales_manager || $this->is_editor;
     }
 
     public function getFilamentName(): string
@@ -61,6 +61,20 @@ class User extends Authenticatable implements FilamentUser, HasName
     {
         return Attribute::make(
             get: fn () => $this->role->value == UserRoleEnum::ADMIN->value
+        );
+    }
+
+    protected function isSalesManager(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->role->value == UserRoleEnum::SALES_MANAGER->value
+        );
+    }
+
+    protected function isEditor(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->role->value == UserRoleEnum::EDITOR->value
         );
     }
 

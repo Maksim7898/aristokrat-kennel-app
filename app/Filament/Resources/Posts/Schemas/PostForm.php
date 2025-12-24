@@ -61,6 +61,8 @@ class PostForm
                     ->label('Автор')
                     ->relationship('author', 'full_name')
                     ->searchable(['full_name', 'email'])
+                    ->native(false)
+                    ->required()
                     ->preload(),
 
                 Textarea::make('excerpt')

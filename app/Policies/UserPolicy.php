@@ -45,4 +45,9 @@ class UserPolicy
     {
         return $user->is_admin;
     }
+
+    public function deleteAny(User $user): bool
+    {
+        return $user->is_admin;
+    }
 }

@@ -7,13 +7,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ReviewResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'author' => $this->user?->full_name,
+            'rating' => $this->rating,
+            'text' => $this->comment,
+            'date' => $this->created_at?->format('d.m.Y'),
+        ];
     }
 }

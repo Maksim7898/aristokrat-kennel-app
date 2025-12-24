@@ -12,7 +12,7 @@ class CatPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
@@ -20,7 +20,7 @@ class CatPolicy
      */
     public function view(User $user, Cat $cat): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
@@ -28,7 +28,7 @@ class CatPolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
@@ -36,7 +36,7 @@ class CatPolicy
      */
     public function update(User $user, Cat $cat): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 
     /**
@@ -44,6 +44,11 @@ class CatPolicy
      */
     public function delete(User $user, Cat $cat): bool
     {
-        return $user->is_admin;
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
+    }
+
+    public function deleteAny(User $user): bool
+    {
+        return $user->is_admin || $user->is_sales_manager || $user->is_editor;
     }
 }
